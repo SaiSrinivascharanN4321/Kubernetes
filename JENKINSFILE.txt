@@ -1,0 +1,8 @@
+git clone https://github.com/SaiSrinivascharanN4321/Kubernetes
+cd Kubernetes
+terraform init
+terraform plan
+terraform apply -auto-approve
+aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
+kubectl get nodes
+kubectl apply deploy.yaml
